@@ -15,6 +15,18 @@ ActiveRecord::Schema.define(version: 2020_02_24_171839) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "sessions", force: :cascade do |t|
+    t.string "movie", null: false
+    t.string "description"
+    t.text "neighborhood", null: false
+    t.string "address"
+    t.datetime "date", null: false
+    t.integer "capacity", null: false
+    t.decimal "price", precision: 10, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
