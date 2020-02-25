@@ -1,2 +1,53 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Secret Movies</h1>
+
+  <div class="container">
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+<% end %>
+</div>
+
+<div class="cards">
+<%= render partial: '/shared/card', locals: { picture:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcReK-PKsiDepwOj-RQX3j_8OkMsyVRMSjXhN5IJU4QXo7dwnhzP' } %>
+<%= render partial: '/shared/card', locals: { picture:'https://m.media-amazon.com/images/M/MV5BMzQ3NTQxMjItODBjYi00YzUzLWE1NzQtZTBlY2Y2NjZlNzkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg' } %>
+<%= render partial: '/shared/card', locals: { picture:'https://m.media-amazon.com/images/M/MV5BMWU0MGYwZWQtMzcwYS00NWVhLTlkZTAtYWVjOTYwZTBhZTBiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg' } %>
+<%= render partial: '/shared/card', locals: { picture:'https://m.media-amazon.com/images/M/MV5BNDQ2YWVmZjEtMTE1ZS00MDk1LTg5ODUtMDVlODk0OTM2ODMwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_SX675_AL_.jpg' } %>
+<%= render partial: '/shared/card', locals: { picture:'https://m.media-amazon.com/images/M/MV5BN2NiMjEyZjAtNzYyYi00YjI3LThhZTYtMzkyZTkxYzgwMzI2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg' } %>
+</div>
+
+<div class="cards">
+  <%= render partial: '/shared/card_2', locals: {
+    movie_title: 'Mulan',
+    movie_date: 'Monday',
+    picture:'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcReK-PKsiDepwOj-RQX3j_8OkMsyVRMSjXhN5IJU4QXo7dwnhzP',
+    price: '10'
+  } %>
+  <%= render partial: '/shared/card_2', locals: {
+    movie_title: 'Birds of Prey',
+    movie_date: 'Tuesday',
+    picture:'https://m.media-amazon.com/images/M/MV5BMzQ3NTQxMjItODBjYi00YzUzLWE1NzQtZTBlY2Y2NjZlNzkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg',
+    price: '10'
+  } %>
+  <%= render partial: '/shared/card_2', locals: {
+    movie_title: 'Bad Boys for Life',
+    movie_date: 'Wednesday',
+    picture:'https://m.media-amazon.com/images/M/MV5BMWU0MGYwZWQtMzcwYS00NWVhLTlkZTAtYWVjOTYwZTBhZTBiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg',
+    price: '10'
+  } %>
+  <%= render partial: '/shared/card_2', locals: {
+    movie_title: 'The Lodge',
+    movie_date: 'Wednesday',
+    picture:'https://m.media-amazon.com/images/M/MV5BNDQ2YWVmZjEtMTE1ZS00MDk1LTg5ODUtMDVlODk0OTM2ODMwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_SX675_AL_.jpg',
+    price: '10'
+  } %>
+  <%= render partial: '/shared/card_2', locals: {
+    movie_title: 'A Quiet Place',
+    movie_date: 'Wednesday',
+    picture:'https://m.media-amazon.com/images/M/MV5BN2NiMjEyZjAtNzYyYi00YjI3LThhZTYtMzkyZTkxYzgwMzI2XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg',
+    price: '10'
+  } %>
+</div>
