@@ -14,32 +14,19 @@
 @import "pages/index";
 
 // to remove the below styles after merge with front end PR
-.main-container {
+.ex-main-container {
   display: flex;
 }
 
-.cards {
+.ex-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px 20px;
+  width: 60vw;
   margin: 15px 10px;
   flex-grow: 1;
 }
 
-.card {
-  background-size: cover;
-  background-position: center;
-  height: 150px;
-  border-radius: 1px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-size: 25px;
-  color: white;
-  font-weight: bolder;
-  text-shadow: 0 0 10px rgba(0,0,0,0.7);
-}
 
 #map {
   /*width: 100%;*/
