@@ -1,2 +1,22 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<!-- TEMP code to remove once front end is added and adjusted -->
+<p><%= current_user.email %></p>
+
+<%= link_to 'Search', sessions_path %>
+
+<div class="wrapper">
+
+  <%= simple_form_for @session, id: 'searchForm' do |f| %>
+
+    <div class="form-inputs">
+      <%= f.input :neighborhood %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Search movie sessions", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
