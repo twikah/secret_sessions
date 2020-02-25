@@ -3,17 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>Secret Sessions</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet' />
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
     <%= render partial: '/shared/navbar' %>
+
     <!-- <p class="notice"><%= notice %></p>
      --><!-- <p class="alert"><%= alert %></p> -->
+     <div>
+
+     </div>
     <%= yield %>
+    <%= render partial: '/shared/footer' %>
+
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>
