@@ -26,7 +26,6 @@ class BookingsController < ApplicationController
     def dashboard
       @booking = Booking.where(user: current_user)
     end
-
   end
 
 
