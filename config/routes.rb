@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:show] do
-    collection do                     # collection => no restaurant id in URL
-      get 'dashboard'                       # RestaurantsController#top
+    collection do
+      get 'dashboard'
     end
   end
 end

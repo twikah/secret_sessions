@@ -1,4 +1,6 @@
 // Import your components CSS files here.
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,700&display=swap');
+
 @import "alert";
 @import "avatar";
 @import "navbar";
@@ -6,3 +8,9 @@
 @import "card";
 @import "card_grid";
 @import "search_form";
+
+body {
+  background-color: white;
+  font-family: 'Oswald', sans-serif;
+}
+

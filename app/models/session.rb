@@ -1,4 +1,8 @@
 class Session < ApplicationRecord
+  has_many :users, through: :bookings
+  has_many :bookings
+  belongs_to :user
+
   validates :movie, presence: true
   validates :description, presence: true, length: { maximum: 1000,
     too_long: "%{count} characters is the maximum allowed" }
