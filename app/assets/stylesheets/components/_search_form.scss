@@ -15,18 +15,20 @@
 }
 
 .search-form-control .form-control:focus {
-  border: 1px solid #1EDD88;
+  border: 1px solid #bb0be3;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .container {
   width: 40%;
-  margin-right: auto;
   margin-left: 50px;
   background: white;
-  padding: 30px;
+  padding: 25px;
+}
 
+a {
+  margin-left: 80%;
 }
 
 .btn-gradient {
@@ -34,12 +36,12 @@
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#167FFB, #0F60C4);
+  background: linear-gradient(#b426c9, #af00c9);
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
-}
+  border: 1px solid #af00c9;
+  }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient(#bb0be3, #e312ae);
   color: white;
 }

@@ -1,6 +1,8 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  grid-gap: 0px;
   padding-top: 100px;
   padding-left: 48px;
 }
@@ -39,5 +41,3 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
-
-
