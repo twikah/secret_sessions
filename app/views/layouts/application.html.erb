@@ -11,9 +11,15 @@
   </head>
   <body>
     <%= render partial: '/shared/navbar' %>
+
     <!-- <p class="notice"><%= notice %></p>
      --><!-- <p class="alert"><%= alert %></p> -->
+     <div>
+
+     </div>
     <%= yield %>
+    <%= render partial: '/shared/footer' %>
+
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>
