@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -44,4 +45,5 @@ class SessionsController < ApplicationController
   def fetch_session
     @session = Session.find(params[:id])
   end
+
 end
