@@ -1,15 +1,10 @@
 import mapboxgl from 'mapbox-gl';
 
-const injectCoordinates = (coordinates) => {
-  const paragraphElement = document.getElementById('coordinates');
-  paragraphElement.innerText = `${coordinates.lat}, ${coordinates.lng}`;
-};
-
 const injectMap = (coordinates) => {
   const lng = coordinates.lng;
   const lat = coordinates.lat;
 
-  mapboxgl.accessToken = 'yourApiKey';
+  mapboxgl.accessToken = 'pk.eyJ1IjoidHdpa2FoIiwiYSI6ImNrNmM1ZThjMjBsd2MzbXA5dWc4a2lscWIifQ.N-CkmI-NekYY0_eU_swklg';
   const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
@@ -21,5 +16,5 @@ const injectMap = (coordinates) => {
     .addTo(map);
 };
 
-export { injectCoordinates, injectMap };
+export { injectMap };
 
