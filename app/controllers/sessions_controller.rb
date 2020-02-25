@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
+  def index
+  end
+
   def new
     @session = Session.new
   end
