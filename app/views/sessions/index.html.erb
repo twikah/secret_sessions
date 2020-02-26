@@ -1,50 +1,19 @@
 <div class="container-cards-details">
 
-  <div class="cards-details">
-    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcReK-PKsiDepwOj-RQX3j_8OkMsyVRMSjXhN5IJU4QXo7dwnhzP" />
-    <div class="session-info">
-      <h2>Mulan</h2>
-      <p><strong>Date</strong></p>
-      <p>Price</p>
+  <% @sessions.each do |session| %>
+    <div class="session-details">
+      <img src="<%= session.picture_url %>" />
+      <div class="session-info">
+        <h2><%= session.movie %></h2>
+        <p>Date: <%=session.date.to_date %></p>
+        <p>Neighborhood: <%=session.neighborhood %></p>
+        <p>Price: $<%=session.price %></p>
+        <p>Capacity: <%=session.capacity %></p>
+      </div>
     </div>
-  </div>
-
-  <div class="cards-details">
-    <img src="https://m.media-amazon.com/images/M/MV5BMzQ3NTQxMjItODBjYi00YzUzLWE1NzQtZTBlY2Y2NjZlNzkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" />
-    <div class="session-info">
-      <h2>Mulan</h2>
-      <p><strong>Date</strong></p>
-      <p>Price</p>
-    </div>
-  </div>
-
-  <div class="cards-details">
-    <img src="https://m.media-amazon.com/images/M/MV5BMWU0MGYwZWQtMzcwYS00NWVhLTlkZTAtYWVjOTYwZTBhZTBiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_CR0,0,674,1000_AL_.jpg" />
-    <div class="session-info">
-      <h2>Mulan</h2>
-      <p><strong>Date</strong></p>
-      <p>Price</p>
-    </div>
-  </div>
-
-  <div class="cards-details">
-    <img src="https://m.media-amazon.com/images/M/MV5BNDQ2YWVmZjEtMTE1ZS00MDk1LTg5ODUtMDVlODk0OTM2ODMwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY1000_SX675_AL_.jpg" />
-    <div class="session-info">
-      <h2>Mulan</h2>
-      <p><strong>Date</strong></p>
-      <p>Price</p>
-    </div>
-  </div>
+  <% end %>
 </div>
 
 
-
-<!-- <h1>Index view</h1>
-<div class="ex-main-container">
-  <div class="ex-cards">
-    here
-  </div> -->
-
-  <!-- <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoidHdpa2FoIiwiYSI6ImNrNmM1ZThjMjBsd2MzbXA5dWc4a2lscWIifQ.N-CkmI-NekYY0_eU_swklg'> -->
 <div id="map">map</div>
 </div>
