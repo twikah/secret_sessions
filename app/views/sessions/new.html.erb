@@ -4,9 +4,9 @@
   <div class="new-form">
     <%= simple_form_for @session do |f| %>
     <div class="new-fields">
-      <%= f.input :movie %>
-      <%= f.input :date %>
-      <%= f.input :address , label: "What is the exact location of this session?" %>
+      <%= f.input :movie, label: "What title will you be watching?" %>
+      <%= f.input :date, label: "When is the session taking place?" %>
+      <%= f.input :address, label: "What is the exact location of this session?" %>
       <%= f.input :neighborhood, label: "In which neighborhood?" %>
       <%= f.input :capacity, label: false, collection: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], prompt: "How many seats are available?" %>
       <%= f.input :price, label: false, collection: 0..5, prompt: "How much would you like to charge per entry?" %>
