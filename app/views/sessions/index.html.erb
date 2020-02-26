@@ -9,6 +9,7 @@
           <p>Neighborhood: <%=session.neighborhood %></p>
           <p>Price: $<%=session.price %></p>
           <p>Capacity: <%=session.capacity %></p>
+          <%= link_to 'See details', session_path(session), class: 'float-right' %>
         </div>
       </div>
     <% end %>

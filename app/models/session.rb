@@ -3,8 +3,8 @@ class Session < ApplicationRecord
   has_many :bookings
   belongs_to :user
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  geocoded_by :neighborhood
+  after_validation :geocode, if: :will_save_change_to_neighborhood?
 
   validates :movie, presence: true
   validates :description, presence: true, length: { maximum: 1000,
