@@ -29,6 +29,8 @@ puts 'Creating 10 fake users'
 end
 
 puts 'Finished'
+
+
 names = ['A Quiet Place Part II', 'Birds of Prey', 'Bad Boys for Life', 'The Lodge', 'Wonder Woman 1984']
 
 
@@ -36,8 +38,8 @@ names.each do |name|
   url = "http://www.omdbapi.com/?s=#{name}&apikey=adf1f2d7"
   page = Nokogiri::HTML(open(url).read)
   json =  JSON.parse(page)
+  p json
   result = json["Search"].first
-  p result
   Session.create!(
     movie: name.capitalize,
     description: Faker::Movies::VForVendetta.quote,
@@ -49,8 +51,9 @@ names.each do |name|
     user_id: User.first.id,
     picture_url: result["Poster"]
   )
-
 end
 
+
 puts 'Creating sessions'
+
 puts 'Finished'

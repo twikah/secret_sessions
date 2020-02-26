@@ -19,6 +19,8 @@
 
 <div class="posters">
   <% @sessions.each do |session| %>
-    <%= render '/shared/session-poster', session: session %>
+    <%= link_to session_path(session) do %>
+      <%= render '/shared/session-poster', session: session %>
+    <% end %>
   <% end %>
 </div>
