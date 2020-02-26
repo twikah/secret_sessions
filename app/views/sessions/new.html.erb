@@ -3,11 +3,18 @@
 
   <div class="new-form">
     <%= simple_form_for @session do |f| %>
-    <%= f.input :movie %>
-    <%= f.input :neighborhood %>
-    <%= f.input :capacity %>
-    <%= f.input :price %>
-    <%= f.submit "Submit", class: "btn btn-dark new-button" %>
+    <div class="new-fields">
+      <%= f.input :movie %>
+      <%= f.input :date %>
+      <%= f.input :address , label: "What is the exact location of this session?" %>
+      <%= f.input :neighborhood, label: "In which neighborhood?" %>
+      <%= f.input :capacity, label: false, collection: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], prompt: "How many seats are available?" %>
+      <%= f.input :price, label: false, collection: 0..5, prompt: "How much would you like to charge per entry?" %>
+    </div>
+
+    <div class="new-button">
+      <%= f.submit "Submit", class: "btn btn-dark" %>
+    </div>
     <% end %>
   </div>
 
