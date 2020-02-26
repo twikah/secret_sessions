@@ -15,7 +15,7 @@
           <p>Time: <%= @session.date.to_s(:time) %></p>
         </div>
         <p>Price: $ <%= @session.price %></p>
-        <p>Address: It's a secret!</p>
+        <p>Location: It's a secret!</p>
         <div class="session-actions mt-5">
           <%= link_to 'Share', '#', class:"btn btn-outline-dark" %>
           <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-outline-dark" %>
