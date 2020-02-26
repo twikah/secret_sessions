@@ -13,7 +13,6 @@
 # Faker::Address.full_address
 # Faker::Date.forward(days: 23)
 require 'nokogiri'
-require 'byebug'
 require 'faker'
 
 Session.destroy_all
@@ -32,6 +31,7 @@ puts 'Finished'
 
 
 names = ['A Quiet Place Part II', 'Birds of Prey', 'Bad Boys for Life', 'The Lodge', 'Wonder Woman 1984']
+
 neighborhoods = ["Alvalade", "Bairro Alto", "Areeiro", "Intendente", "Olivais"]
 
 
