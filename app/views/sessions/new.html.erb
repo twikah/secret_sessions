@@ -1,1 +1,14 @@
-<h1>New movie session page</h1>
+<div class="container-new-form">
+  <h1>CREATE A NEW SESSION</h1>
+
+  <div class="new-form">
+    <%= simple_form_for @session do |f| %>
+    <%= f.input :movie %>
+    <%= f.input :neighborhood %>
+    <%= f.input :capacity %>
+    <%= f.input :price %>
+    <%= f.submit "Submit", class: "btn btn-dark new-button" %>
+    <% end %>
+  </div>
+
+</div>
