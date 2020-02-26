@@ -25,8 +25,16 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(session_params)
+    @session.user = current_user
+    # url = "http://www.omdbapi.com/?s=#{session_params[:movie]}&apikey=adf1f2d7"
+    # page = Nokogiri::HTML(open(url).read)
+    # json =  JSON.parse(page)
+    # result = json["Search"].first
+
+    @session.picture_url = "https://source.unsplash.com/user/erondu/1600x900"
+
     if @session.save
-      redirect_to @session
+      redirect_to sessions_path
     else
       render :new
     end
@@ -52,8 +60,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:movie, :neighborhood, :address,
-      :description, :date, :capacity, :price)
+    params.require(:session).permit(:movie, :neighborhood, :address, :date, :capacity, :price)
   end
 
   def fetch_session
