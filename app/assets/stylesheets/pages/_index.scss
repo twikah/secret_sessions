@@ -1,3 +1,44 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.cards-details {
+  overflow: hidden;
+  height: 180px;
+  width: 400px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.cards-details img {
+  height: 100%;
+  width: 130px;
+  object-fit: fill;
+}
+
+.cards-details h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cards-details p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.cards-details .session-info {
+  padding: 40px;
+}
+
+.container-cards-details {
+ display: grid;
+ justify-content: flex-start;
+ grid-gap: 25px;
+ padding: 50px;
+}
