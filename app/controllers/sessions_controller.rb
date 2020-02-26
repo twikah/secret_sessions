@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
