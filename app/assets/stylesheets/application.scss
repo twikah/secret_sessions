@@ -13,28 +13,11 @@
 @import "components/index";
 @import "pages/index";
 
-// to remove the below styles after merge with front end PR
-.ex-main-container {
-  display: flex;
-}
-
-.ex-cards {
-  width: 60vw;
-  flex-grow: 1;
-}
-
-#map {
-  /*width: 100%;*/
-  height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
 .page-container {
   position: relative;
   min-height: 100vh;
 }
 
 .content-wrap {
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }

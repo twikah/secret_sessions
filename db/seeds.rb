@@ -32,6 +32,7 @@ puts 'Finished'
 
 
 names = ['A Quiet Place Part II', 'Birds of Prey', 'Bad Boys for Life', 'The Lodge', 'Wonder Woman 1984']
+neighborhoods = ["Alvalade", "Bairro Alto", "Areeiro", "Intendente", "Olivais"]
 
 
 names.each do |name|
@@ -41,9 +42,9 @@ names.each do |name|
   p json
   result = json["Search"].first
   Session.create!(
-    movie: name.capitalize,
+    movie: name,
     description: Faker::Movies::VForVendetta.quote,
-    neighborhood: Faker::Address.city,
+    neighborhood: neighborhoods.sample,
     address: Faker::Address.full_address,
     date: Faker::Date.forward(days: 23),
     capacity: Faker::Number.number(digits: 2),
