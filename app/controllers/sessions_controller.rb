@@ -3,9 +3,11 @@ class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
+    @sessions = Session.all
   end
 
   def show
+    @sessions = Session.find(params[:id])
   end
 
   def new

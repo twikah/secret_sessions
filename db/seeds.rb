@@ -12,35 +12,45 @@
 # Faker::Address.city
 # Faker::Address.full_address
 # Faker::Date.forward(days: 23)
-User.destroy_all
-Session.destroy_all
-
+require 'nokogiri'
+require 'byebug'
 require 'faker'
+
+Session.destroy_all
+User.destroy_all
 
 puts 'Creating 10 fake users'
 
 10.times do
   User.create!(
    email: Faker::Internet.email,
-   password:Faker::Internet.password
+   password: "123456"
   )
 end
 
 puts 'Finished'
+names = ['A Quiet Place Part II', 'Birds of Prey', 'Bad Boys for Life', 'The Lodge', 'Wonder Woman 1984']
 
-puts 'Creating 10 fake sessions'
 
-10.times do
+names.each do |name|
+  url = "http://www.omdbapi.com/?s=#{name}&apikey=adf1f2d7"
+  page = Nokogiri::HTML(open(url).read)
+  json =  JSON.parse(page)
+  result = json["Search"].first
+  p result
   Session.create!(
-    movie: Faker::Name.name,
+    movie: name.capitalize,
     description: Faker::Movies::VForVendetta.quote,
     neighborhood: Faker::Address.city,
     address: Faker::Address.full_address,
     date: Faker::Date.forward(days: 23),
     capacity: Faker::Number.number(digits: 2),
-    price: Faker::Number.between(from: 1, to: 3),
-    user_id: User.first.id
+    price: Faker::Number.between(from: 10, to: 30),
+    user_id: User.first.id,
+    picture_url: result["Poster"]
   )
+
 end
 
+puts 'Creating sessions'
 puts 'Finished'
