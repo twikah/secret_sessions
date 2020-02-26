@@ -29,7 +29,9 @@ puts 'Creating 10 fake users'
 end
 
 puts 'Finished'
-names = ['mulan', 'star wars']
+names = ['A Quiet Place Part II', 'Birds of Prey', 'Bad Boys for Life', 'The Lodge', 'Wonder Woman 1984']
+
+
 names.each do |name|
   url = "http://www.omdbapi.com/?s=#{name}&apikey=adf1f2d7"
   page = Nokogiri::HTML(open(url).read)
@@ -43,7 +45,7 @@ names.each do |name|
     address: Faker::Address.full_address,
     date: Faker::Date.forward(days: 23),
     capacity: Faker::Number.number(digits: 2),
-    price: Faker::Number.between(from: 1, to: 3),
+    price: Faker::Number.between(from: 10, to: 30),
     user_id: User.first.id,
     picture_url: result["Poster"]
   )
