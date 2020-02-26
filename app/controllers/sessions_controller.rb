@@ -3,7 +3,8 @@ class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sessions = Session.geocoded
+    @sessions = Session.all
+    # @sessions = Session.geocoded
 
     @markers = @sessions.map do |session|
       {
@@ -16,6 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def show
+    @sessions = Session.find(params[:id])
   end
 
   def new

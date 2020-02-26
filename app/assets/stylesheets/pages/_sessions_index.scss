@@ -1,4 +1,4 @@
-.cards-details {
+.session-details {
   overflow: hidden;
   height: 180px;
   width: 400px;
@@ -9,19 +9,19 @@
   border-radius: 5px;
 }
 
-.cards-details img {
+.session-details img {
   height: 100%;
   width: 130px;
   object-fit: fill;
 }
 
-.cards-details h2 {
+.session-details h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.cards-details p {
+.session-details p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -29,7 +29,7 @@
   margin-top: 8px;
 }
 
-.cards-details .session-info {
+.session-details .session-info {
   padding: 40px;
 }
 
