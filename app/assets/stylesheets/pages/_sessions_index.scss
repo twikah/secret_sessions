@@ -34,8 +34,12 @@
 }
 
 .container-cards-details {
- display: grid;
- justify-content: flex-start;
- grid-gap: 25px;
- padding: 50px;
+  display: grid;
+  justify-content: flex-start;
+  grid-gap: 25px;
+  padding: 50px;
+}
+
+.show-container {
+  display: flex;
 }
