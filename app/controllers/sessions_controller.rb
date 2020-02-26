@@ -25,26 +25,6 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(session_params)
-
-    sessions.each do |movie|
-      url = "http://www.omdbapi.com/?s=#{params[:movie]}&apikey=adf1f2d7"
-      page = Nokogiri::HTML(open(url).read)
-      json =  JSON.parse(page)
-      result = json["Search"].first
-  # p result
-  # Session.create!(
-  #   movie: name,
-  #   description: Faker::Movies::VForVendetta.quote,
-  #   neighborhood: neighborhoods.sample,
-  #   address: Faker::Address.full_address,
-  #   date: Faker::Date.forward(days: 23),
-  #   capacity: Faker::Number.number(digits: 2),
-  #   price: Faker::Number.between(from: 10, to: 30),
-  #   user_id: User.first.id,
-  #   picture_url: result["Poster"]
-  # )
-    end
-
     if @session.save
       redirect_to @session
     else
