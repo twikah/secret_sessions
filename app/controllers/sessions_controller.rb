@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         lat: session.latitude,
         lng: session.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { session: session }),
-        image_url: helpers.asset_url('avatar')
+        image_url: 'https://res.cloudinary.com/dl5weozhw/image/upload/v1582735986/avatar_zjp30z.png'
       }
     end
   end
