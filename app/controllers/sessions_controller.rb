@@ -3,7 +3,16 @@ class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sessions = Session.all
+    @sessions = Session.geocoded
+
+    @markers = @sessions.map do |session|
+      {
+        lat: session.latitude,
+        lng: session.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { session: session }),
+        image_url: helpers.asset_url('avatar')
+      }
+    end
   end
 
   def show

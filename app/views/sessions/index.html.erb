@@ -1,19 +1,19 @@
-<div class="container-cards-details">
-
-  <% @sessions.each do |session| %>
-    <div class="session-details">
-      <img src="<%= session.picture_url %>" />
-      <div class="session-info">
-        <h2><%= session.movie %></h2>
-        <p>Date: <%=session.date.to_date %></p>
-        <p>Neighborhood: <%=session.neighborhood %></p>
-        <p>Price: $<%=session.price %></p>
-        <p>Capacity: <%=session.capacity %></p>
+<div class="show-container">
+  <div class="container-cards-details">
+    <% @sessions.each do |session| %>
+      <div class="session-details">
+        <img src="<%= session.picture_url %>" />
+        <div class="session-info">
+          <h2><%= session.movie %></h2>
+          <p>Date: <%=session.date.to_date %></p>
+          <p>Neighborhood: <%=session.neighborhood %></p>
+          <p>Price: $<%=session.price %></p>
+          <p>Capacity: <%=session.capacity %></p>
+          <%= link_to 'See details', session_path(session), class: 'float-right' %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
+  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<div id="map">map</div>
-</div>
