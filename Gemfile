@@ -19,6 +19,7 @@ gem 'devise'
 gem 'faker'
 gem 'geocoder'
 gem 'nokogiri'
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
