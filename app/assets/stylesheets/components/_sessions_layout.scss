@@ -38,9 +38,11 @@
   display: grid;
   justify-content: flex-start;
   grid-gap: 25px;
-  padding: 50px;
+  padding: 25px 50px;
 }
 
-.show-container {
-  display: flex;
+.no-sessions-banner {
+  background-color: #CB064F;
+  color: #fff;
+  font-size: 18px;
 }
