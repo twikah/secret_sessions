@@ -1,14 +1,3 @@
-<%# @past.each do |i| %>
-  <!-- <p><%= i.movie %></p> -->
-<!-- <%# end %> -->
-<%# @upcoming.each do |i| %>
-  <!-- <p><%= i.movie %></p> -->
-<%# end %>
-<!--
-<%# @sessions.each do |i| %>
-  <p><%= i.movie %></p>
-<%# end %>
- -->
 <div class="dashboard-container">
 
     <div class="upcoming-sessions">
@@ -54,7 +43,7 @@
           <div class="session-info dash-info">
             <h2><%= session.movie %></h2>
             <p>Date: <%=session.date.to_date %></p>
-            <%= link_to 'See details', session_path(session), class: 'float-right dash-link' %>
+            <%= link_to 'See details', session_bookings_path(session), class: 'float-right dash-link' %>
           </div>
         </div>
       <% end %>
