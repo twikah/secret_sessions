@@ -2,8 +2,7 @@ class BookingsController < ApplicationController
   before_action :fetch_session, except: [:dashboard, :show]
 
   def index
-    @bookings = Booking.all
-    # @bookings = Booking.where(published: true)
+    @bookings = @session.bookings
   end
 
   def new
@@ -11,28 +10,33 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(dose_params)
+    @booking = Booking.new(booking_params)
     @booking.session = @session
+    @booking.user = current_user
+    @booking.total = @session.price * booking_params[:quantity].to_i
     if @booking.save
-      redirect_to session_path(@booking.session)
+      @session.capacity -= booking_params[:quantity].to_i
+      @session.save!
+      flash[:notice] = 'Booking successfully paid! Click on the session for details'
+      redirect_to dashboard_bookings_path
     else
       render :new
     end
-
-    def show
-      @booking = Booking.find(params[:id])
-    end
-
-    def dashboard
-      @booking = Booking.where(user: current_user)
-    end
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+  def dashboard
+    @bookings = Booking.where(user: current_user) # sessions booked by current user
+    @sessions = Session.where(user: current_user) # sessions created by current user
+  end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:quantity, :total)
+    params.require(:booking).permit(:quantity)
   end
 
   def fetch_session
