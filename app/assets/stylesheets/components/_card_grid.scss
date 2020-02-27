@@ -1,7 +1,8 @@
 .posters {
   display: flex;
   justify-content: space-evenly;
-  padding: 100px 0px;
+  flex-wrap: wrap;
+  padding: 100px 25px;
 }
 
 // Smallest device
