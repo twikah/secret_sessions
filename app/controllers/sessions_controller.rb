@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
     @session.picture_url = result["Poster"]
 
     if @session.save
-      redirect_to sessions_path
+      redirect_to dashboard_bookings_path
     else
       render :new
     end

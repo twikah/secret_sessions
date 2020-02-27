@@ -10,10 +10,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(dose_params)
+    @booking = Booking.new(booking_params)
     @booking.session = @session
+    @booking.user = current_user
     if @booking.save
-      redirect_to session_path(@booking.session)
+      @booking.total = booking_params[:total]
+      @session.capacity -= booking_params[:quantity].to_i
+      @session.save!
+      flash[:notice] = 'Booking successfully paid! Click on the session for details'
+      redirect_to dashboard_bookings_path
     else
       render :new
     end
@@ -31,7 +36,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:quantity, :total)
+    params.require(:booking).permit(:quantity)
   end
 
   def fetch_session

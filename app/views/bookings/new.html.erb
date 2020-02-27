@@ -48,13 +48,13 @@
         <%= simple_form_for [@session, @booking] do |f| %>
 
           <div class="form-inputs">
-            <%= f.input :quantity, id:"booking-quantity" %>
+            <%= f.input :quantity, collection: 1..@session.capacity %>
           </div>
 
-          <p id="booking-total">total here</p>
+          <p>Total: <span id="booking-total">$ 0</span></p>
 
           <div class="form-actions">
-            <%= f.submit "Continue to payment details", class: "btn btn-dark" %>
+            <%= f.submit "Pay instantly!", class: "btn btn-dark" %>
           </div>
 
         <% end %>
