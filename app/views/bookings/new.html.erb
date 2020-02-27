@@ -12,30 +12,30 @@
 </div>
 -->
 
-<div class="container">
+<div class="container booking-fields">
   <div class="row justify-content-center">
     <div class="col-12">
-      <div class="ml-5 pl-3">
+      <div class="ml-4 pl-3">
         <%= link_to 'Go back', @session %>
       </div>
     </div>
   </div>
-  <div class="row justify-content-center py-3 my-5">
-    <div class="col-12 col-lg-7">
+  <div class="row justify-content-center my-5">
+    <div class="col-12 col-lg-7 mr-5">
       <div class="session-description m-2 p-2">
-        <h2>Movie: <%= @session.movie %></h2>
-        <p class="pt-3">Description: </p>
+        <h2><%= @session.movie %></h2>
+        <p class="pt-3"></p>
         <p><%= @session.description %></p>
         <p class="pt-4">Neighborhood: <%= @session.neighborhood %></p>
-        <h3>Secret Sessions rules</h3>
-        <p>Its not allowed to enter at Secret Session with alcoholic beverages, boxes with food, and professional cameras /video cameras.</p>
-        <p>The minimum age is 16 years old.</p>
-        <p>It is not possible to leave the grounds and get in again.</p>
+        <h3 class="mt-5 booking-rules">Rules</h3>
+        <p class="booking-rules-info">It is not allowed to enter a Secret Session while carrying alcoholic beverages, food, or professional cameras /video cameras.</p>
+        <!-- <p>You must be at least 16 years old.</p> -->
+        <p class="booking-rules-info">Once you leave the grounds, you will not be able to get in again.</p>
       </div>
     </div>
 
     <div class="col-12 col-lg-4 border rounded">
-      <div class="session-booking-card p-4">
+      <div class="session-booking-card">
         <div class="session-date">
           <p>Date: <%= @session.date.to_date %></p>
           <p>Time: <%= @session.date.to_s(:time) %></p>
@@ -43,20 +43,20 @@
         <p>Price: $ <span id="booking-price"><%= @session.price %></span></p>
         <p>Address: It's a secret!</p>
 
-        <h5 class="mt-4">Buy ticket to <%= @session.movie %></h5>
+        <h5 class="mt-5">Get tickets to <%= @session.movie %>!</h5>
 
         <% if @session.capacity == 0 || @session.capacity.nil? %>
           <p class="mt-5">Sorry, this session is sold out!</p>
         <% else %>
           <%= simple_form_for [@session, @booking] do |f| %>
 
-            <div class="form-inputs">
-              <%= f.input :quantity, collection: 1..@session.capacity %>
+            <div class="mt-4 form-inputs">
+              <%= f.input :quantity, label: false, prompt: "How many?", collection: 1..@session.capacity %>
             </div>
 
             <p>Total: <span id="booking-total">$ 0</span></p>
 
-            <div class="form-actions">
+            <div class="mt-2 form-actions">
               <%= f.submit "Pay instantly!", class: "btn btn-dark" %>
             </div>
 
