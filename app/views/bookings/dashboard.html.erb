@@ -1,14 +1,63 @@
-<h3>Dashboard</h3>
+<%# @past.each do |i| %>
+  <!-- <p><%= i.movie %></p> -->
+<!-- <%# end %> -->
+<%# @upcoming.each do |i| %>
+  <!-- <p><%= i.movie %></p> -->
+<%# end %>
+<!--
+<%# @sessions.each do |i| %>
+  <p><%= i.movie %></p>
+<%# end %>
+ -->
+<div class="dashboard-container">
 
-<% @past.each do |i| %>
-  <p><%= i.movie %></p>
-<% end %>
-<br>
-<% @upcoming.each do |i| %>
-  <p><%= i.movie %></p>
-<% end %>
-<br><br>
+    <div class="upcoming-sessions">
+      <h3> Upcoming Sessions </h3>
 
-<% @sessions.each do |i| %>
-  <p><%= i.movie %></p>
-<% end %>
+    <div class="container-cards-details dashboard">
+      <% @upcoming.each do |session| %>
+        <div class="session-details dash-card" >
+          <img src="<%= session.picture_url %>" />
+          <div class="session-info dash-info">
+            <h2><%= session.movie %></h2>
+            <p>Date: <%=session.date.to_date %></p>
+            <%= link_to 'See details', session_path(session), class: 'float-right dash-link' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    </div>
+
+    <div class="past-sessions">
+        <h3> Past Sessions </h3>
+
+    <div class="container-cards-details dashboard">
+      <% @past.each do |session| %>
+        <div class="session-details dash-card" >
+          <img src="<%= session.picture_url %>" />
+          <div class="session-info dash-info">
+            <h2><%= session.movie %></h2>
+            <p>Date: <%=session.date.to_date %></p>
+            <%= link_to 'See details', session_path(session), class: 'float-right dash-link' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="bookings-container">
+    <h3> Sessions I created </h3>
+    <div class="container-cards-details dashboard">
+      <% @sessions.each do |session| %>
+        <div class="session-details dash-card" >
+          <img src="<%= session.picture_url %>" />
+          <div class="session-info dash-info">
+            <h2><%= session.movie %></h2>
+            <p>Date: <%=session.date.to_date %></p>
+            <%= link_to 'See details', session_path(session), class: 'float-right dash-link' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

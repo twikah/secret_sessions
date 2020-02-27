@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :fetch_session, except: [:dashboard, :show]
 
   def index
@@ -45,5 +46,4 @@ class BookingsController < ApplicationController
   def fetch_session
     @session = Session.find(params[:session_id])
   end
-
 end
