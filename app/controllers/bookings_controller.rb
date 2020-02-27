@@ -17,17 +17,16 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-
-    def show
-      @booking = Booking.find(params[:id])
-    end
-
-    def dashboard
-      @bookings = Booking.where(user: current_user) # sessions booked by current user
-      @sessions = Session.where(user: current_user) # sessions created by current user
-    end
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
+  def dashboard
+    @bookings = Booking.where(user: current_user) # sessions booked by current user
+    @sessions = Session.where(user: current_user) # sessions created by current user
+  end
 
   private
 
