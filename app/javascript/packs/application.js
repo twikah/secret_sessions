@@ -4,3 +4,21 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+
+const updateTotal = (quantity) => {
+  const totalField = document.querySelector('#booking-total');
+  const price = document.querySelector('#booking-price').innerText;
+  const total = Number.parseInt(quantity, 10) * Number.parseInt(price, 10);
+  console.log(quantity);
+
+  totalField.innerText = `$ ${total}`;
+};
+
+const quantityField = document.querySelector('#booking_quantity');
+quantityField.addEventListener('change', (event) => {
+  const quantity = quantityField.value || 0;
+  updateTotal(quantity);
+});
+
+
+
