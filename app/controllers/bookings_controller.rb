@@ -2,8 +2,7 @@ class BookingsController < ApplicationController
   before_action :fetch_session, except: [:dashboard, :show]
 
   def index
-    @bookings = Booking.all
-    # @bookings = Booking.where(published: true)
+    @bookings = @session.bookings
   end
 
   def new
@@ -24,7 +23,8 @@ class BookingsController < ApplicationController
     end
 
     def dashboard
-      @booking = Booking.where(user: current_user)
+      @bookings = Booking.where(user: current_user) # sessions booked by current user
+      @sessions = Session.where(user: current_user) # sessions created by current user
     end
   end
 

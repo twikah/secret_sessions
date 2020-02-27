@@ -20,7 +20,7 @@ User.destroy_all
 
 puts 'Creating 10 fake users'
 
-10.times do
+3.times do
   User.create!(
    email: Faker::Internet.email,
    password: "123456"
