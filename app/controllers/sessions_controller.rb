@@ -7,6 +7,10 @@ class SessionsController < ApplicationController
 
   def index
     @sessions = Session.geocoded.search_in_neighborhood(params[:search][:neighborhood])
+    if @sessions.length == 0
+      @sessions = Session.geocoded
+    end
+
 
     @markers = @sessions.map do |session|
       {
