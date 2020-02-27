@@ -1,15 +1,24 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12">
+    <div class="col-6">
       <div class="ml-5 pl-3">
         <%= link_to 'Go back', sessions_path %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="ml-5 pl-3">
+        <% if @session.user == current_user %>
+          <p>Created by you: <%= link_to 'See bookings', session_bookings_path(@session) %> </p>
+        <% else %>
+          <p>Created by: <%= @session.user.email %> </p>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="row justify-content-center py-3 my-5">
     <div class="col-12 col-lg-7">
       <div class="session-description m-2 p-2">
-        <h2>Movie: <%= @session.movie %></h2>
+        <h2><%= @session.movie %></h2>
         <p class="pt-3">Description: </p>
         <p><%= @session.description %></p>
         <p class="pt-4">Neighborhood: <%= @session.neighborhood %></p>
