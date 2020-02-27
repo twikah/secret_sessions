@@ -1,4 +1,6 @@
 class Session < ApplicationRecord
+  include PgSearch::Model
+
   has_many :users, through: :bookings
   has_many :bookings
   belongs_to :user
@@ -14,5 +16,11 @@ class Session < ApplicationRecord
   validates :date, presence: true
   validates :capacity, presence: true
   validates :price, presence: true
+
+  pg_search_scope :search_in_neighborhood,
+    against: [ :neighborhood ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 
 end

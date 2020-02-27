@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sessions = Session.geocoded
+    @sessions = Session.geocoded.search_in_neighborhood(params[:search][:neighborhood])
 
     @markers = @sessions.map do |session|
       {
