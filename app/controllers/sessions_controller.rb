@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
       @sessions = Session.geocoded
     end
 
-
     @markers = @sessions.map do |session|
       {
         lat: session.latitude,

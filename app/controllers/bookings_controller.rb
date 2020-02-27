@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.session = @session
     @booking.user = current_user
-    @booking.total = @session.price * booking_params[:total]
+    @booking.total = @session.price * booking_params[:quantity].to_i
     if @booking.save
       @session.capacity -= booking_params[:quantity].to_i
       @session.save!

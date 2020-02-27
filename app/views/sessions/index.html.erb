@@ -8,7 +8,11 @@
           <p>Date: <%=session.date.to_date %></p>
           <p>Neighborhood: <%=session.neighborhood %></p>
           <p>Price: $<%=session.price %></p>
-          <p>Capacity: <%=session.capacity %></p>
+          <% if session.capacity == 0 || session.capacity.nil? %>
+            <p>Sold out!</p>
+          <% else %>
+            <p>Capacity: <%=session.capacity %></p>
+          <% end %>
           <%= link_to 'See details', session_path(session), class: 'float-right' %>
         </div>
       </div>
