@@ -13,8 +13,8 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.session = @session
     @booking.user = current_user
+    @booking.total = @session.price * booking_params[:total]
     if @booking.save
-      @booking.total = booking_params[:total]
       @session.capacity -= booking_params[:quantity].to_i
       @session.save!
       flash[:notice] = 'Booking successfully paid! Click on the session for details'
