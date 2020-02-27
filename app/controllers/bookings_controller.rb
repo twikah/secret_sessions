@@ -30,11 +30,12 @@ class BookingsController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.where(user: current_user) # sessions booked by current user
+    @sessions_booked = Session.joins(:bookings).where(bookings: { user: current_user }) # sessions booked by current user
     @sessions = Session.where(user: current_user) # sessions created by current user
 
-    @past = @sessions.select { |session| session.date.to_date < DateTime.now.to_date}
-    @upcoming = @sessions.select { |session| session.date.to_date >= DateTime.now.to_date}
+    @past = @sessions_booked.select { |session| session.date.to_date < DateTime.now.to_date}
+    @upcoming = @sessions_booked.select { |session| session.date.to_date >= DateTime.now.to_date}
+  end
 
   private
 

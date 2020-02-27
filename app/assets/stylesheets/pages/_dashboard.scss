@@ -1,15 +1,20 @@
-.upcoming-sessions {
-  background-color: whitesmoke;
+ .container-cards-details.dashboard {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 100px;
+  padding: 25px 20px;
+  width: 92%;
 }
 
-.upcoming-sessions {
-  background-color: whitesmoke;
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding: 100px;
+.dash-card {
+  width: 300px;
+  margin: 0 10px 20px;
 }
+
+.session-info.dash-info {
+  padding-left: 20px;
+}
+a.float-right.dash-link {
+  float: left !important;
+}
+
