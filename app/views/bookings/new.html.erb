@@ -23,14 +23,14 @@
   <div class="row justify-content-center py-3 my-5">
     <div class="col-12 col-lg-7">
       <div class="session-description m-2 p-2">
-        <h2>Movie: <%= @session.movie %></h2>
-        <p class="pt-3">Description: </p>
+        <h2><%= @session.movie %></h2>
+        <p class="pt-3"></p>
         <p><%= @session.description %></p>
         <p class="pt-4">Neighborhood: <%= @session.neighborhood %></p>
-        <h3>Secret Sessions rules</h3>
-        <p>Its not allowed to enter at Secret Session with alcoholic beverages, boxes with food, and professional cameras /video cameras.</p>
-        <p>The minimum age is 16 years old.</p>
-        <p>It is not possible to leave the grounds and get in again.</p>
+        <h3 class="mt-5 booking-rules">Rules</h3>
+        <p>It is not allowed to enter a Secret Session while carrying alcoholic beverages, food, or professional cameras /video cameras.</p>
+        <!-- <p>You must be at least 16 years old.</p> -->
+        <p>Once you leave the grounds, you will not be able to get in again.</p>
       </div>
     </div>
 
