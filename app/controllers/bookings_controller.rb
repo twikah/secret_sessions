@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   before_action :fetch_session, except: [:dashboard, :show]
 
   def index
@@ -29,8 +30,11 @@ class BookingsController < ApplicationController
   end
 
   def dashboard
-    @bookings = Booking.where(user: current_user) # sessions booked by current user
+    @sessions_booked = Session.joins(:bookings).where(bookings: { user: current_user }) # sessions booked by current user
     @sessions = Session.where(user: current_user) # sessions created by current user
+
+    @past = @sessions_booked.select { |session| session.date.to_date < DateTime.now.to_date}
+    @upcoming = @sessions_booked.select { |session| session.date.to_date >= DateTime.now.to_date}
   end
 
   private
@@ -42,5 +46,4 @@ class BookingsController < ApplicationController
   def fetch_session
     @session = Session.find(params[:session_id])
   end
-
 end
