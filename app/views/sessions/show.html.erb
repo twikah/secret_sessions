@@ -54,7 +54,7 @@
             <p class="created-by">created by You</p>
           </div>
         <% else %>
-          <p class="created-by">created by <%= @session.user.email %> </p>
+          <p class="created-by">created by <%= "#{@session.user.first_name} #{@session.user.last_name}" %> </p>
         <% end %>
       </div>
     </div>
