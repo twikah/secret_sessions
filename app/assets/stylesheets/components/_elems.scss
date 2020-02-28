@@ -11,11 +11,14 @@
   padding: 45px 25px;
 }
 
-// .session-booking-card .form-actions {
-//   display: flex;
-//   flex-direction: row-reverse;
-//   align-items: flex-end;
-// }
+.booking-prompt {
+  font-size: 17px;
+}
+
+.session-booking-card .form-actions {
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 .created-by {
   display: flex;
