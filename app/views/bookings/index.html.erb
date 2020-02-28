@@ -28,7 +28,7 @@
           <p>Neighborhood: <%= @session.neighborhood %></p>
         </div>
         <p>Price: $ <%= @session.price %></p>
-        <p class="pt-3">Total revenue as of <%= DateTime.now.to_date %>: $ <%= (@session.bookings.map(&:total).reduce(&:+) || 0).round(2) %></p>
+        <p class="pt-3">Total revenue as of <%= DateTime.now.to_date %>: $ <%= (@bookings.map(&:total).reduce(&:+) || 0).round(2) %></p>
         <p class="pt-3">Session's bookings:</p>
         <% @bookings.each do |booking| %>
           <p class="pl-2"><%= booking.user.email %></p>

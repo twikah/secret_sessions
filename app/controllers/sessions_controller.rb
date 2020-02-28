@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       end
 
     else
-      @sessions = Session.geocoded
+      @sessions = policy_scope(Session.geocoded)
     end
 
 
@@ -30,7 +30,8 @@ class SessionsController < ApplicationController
   end
 
   def show
-    @sessions = Session.find(params[:id])
+    @session = Session.find(params[:id])
+    authorize @session
   end
 
   def new

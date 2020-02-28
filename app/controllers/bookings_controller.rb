@@ -1,12 +1,15 @@
 class BookingsController < ApplicationController
+  skip_after_action :verify_authorized, only: :dashboard
   before_action :fetch_session, except: [:dashboard, :show]
 
   def index
-    @bookings = @session.bookings
+    # @bookings = policy_scope(Booking)
+    @bookings = policy_scope(@session.bookings)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
@@ -14,6 +17,8 @@ class BookingsController < ApplicationController
     @booking.session = @session
     @booking.user = current_user
     @booking.total = @session.price * booking_params[:quantity].to_i
+    authorize @booking
+
     if @booking.save
       @session.capacity -= booking_params[:quantity].to_i
       @session.save!
@@ -26,6 +31,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def dashboard
