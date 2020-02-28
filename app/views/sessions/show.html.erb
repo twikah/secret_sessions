@@ -23,7 +23,6 @@
         </div>
         <p>Price: $ <%= @session.price %></p>
         <p>Location: It's a secret!</p>
-
         <% if @session.user == current_user %>
           <p><%= link_to 'See bookings', session_bookings_path(@session), class:"btn btn-dark mt-5", style: "width:100%" %></p>
           <div class="session-actions mt-4">
@@ -32,8 +31,9 @@
           </div>
         <% else %>
           <div class="session-actions mt-4">
-            <%= link_to 'Share', '#', class:"btn btn-outline-dark" %>
+<!--            <%#= link_to 'Share', '#', class:"btn btn-outline-dark" %>    -->
             <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-dark" %>
+            <%= rails_social_share_button_tag ('Check this out!! Secret Sessions!!'+ "      "   + request.base_url + request.fullpath) %>
           </div>
         <% end %>
       </div>
