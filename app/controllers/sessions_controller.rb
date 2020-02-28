@@ -61,7 +61,6 @@ class SessionsController < ApplicationController
   end
 
   def update
-    # authorize @session
     if @session.update(session_params) # true / false
       redirect_to @session, notice: 'Your new movie session was successfully updated.'
     else
@@ -71,9 +70,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    # authorize @session
-    @session.destroy
-    redirect_to sessions_url, notice: 'Session was successfully destroyed.'
+    if @session.bookings.length == 0
+      @session.destroy
+      redirect_to sessions_path, notice: 'Session was successfully destroyed.'
+    else
+      redirect_to session_path(@session), alert: "You can't delete a session that has bookings!"
+    end
   end
 
   private
