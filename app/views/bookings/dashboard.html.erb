@@ -42,8 +42,8 @@
           <img src="<%= session.picture_url %>" />
           <div class="session-info dash-info">
             <h2><%= session.movie %></h2>
-            <p>Date: <%=session.date.to_date %></p>
-            <%= link_to 'See details', session_bookings_path(session), class: 'float-right dash-link' %>
+            <p>Date: <%= session.date.to_date %></p>
+            <%= link_to 'See details', session_path(session), class: 'float-right dash-link' %>
           </div>
         </div>
       <% end %>

@@ -2,7 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <div class="ml-4 pl-3">
-        <%= link_to 'Go back', sessions_path %>
+        <%#= link_to 'Go back', sessions_path %>
+        <%= link_to 'Go back', :back %>
       </div>
     </div>
   </div>
@@ -26,14 +27,22 @@
         <% if @session.user == current_user %>
           <p><%= link_to 'See bookings', session_bookings_path(@session), class:"btn btn-dark mt-5", style: "width:100%" %></p>
           <div class="session-actions mt-4">
-            <%= link_to 'Edit session', '#', class:"btn btn-outline-dark" %>
-            <%= link_to 'Cancel session', '#', class:"btn btn-outline-dark" %>
+            <% if policy(@session).edit? %>
+              <%= link_to 'Edit session', edit_session_path(@session), class:"btn btn-outline-dark" %>
+            <% end %>
+            <% if policy(@session).destroy? %>
+              <%= link_to 'Cancel session', session_path(@session), method: :delete, class:"btn btn-outline-dark" %>
+            <% end %>
           </div>
         <% else %>
           <div class="session-actions mt-4">
-<!--            <%#= link_to 'Share', '#', class:"btn btn-outline-dark" %>    -->
-            <%= rails_social_share_button_tag ('Check this out!! Secret Sessions!!'+ "      "   + request.base_url + request.fullpath) %>
-            <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-dark" %>
+            <%= link_to 'Share', '#', class:"btn btn-outline-dark", id:"share-btn" %>
+            <% if policy(Booking).create? %>
+              <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-dark" %>
+            <% end %>
+          </div>
+          <div class="social-buttons pt-4 d-none" id="social-btns">
+            <%= rails_social_share_button_tag ('Check this out!! Secret Sessions!!' + "      " + request.base_url + request.fullpath) %>
           </div>
         <% end %>
       </div>

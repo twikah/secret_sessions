@@ -20,6 +20,7 @@ gem 'faker'
 gem 'geocoder'
 gem 'nokogiri'
 gem 'pg_search'
+gem 'pundit'
 gem 'rails-social-share-button'
 
 group :development do

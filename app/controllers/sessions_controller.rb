@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
 
   def index
     if params[:search].present? && params[:search][:neighborhood].present?
-      @sessions = Session.geocoded.near(params[:search][:neighborhood], 5)
+      @sessions = policy_scope(Session.geocoded.near(params[:search][:neighborhood], 5))
 
       if @sessions.length == 0
         @no_sessions = true
-        @sessions = Session.geocoded
+        @sessions = policy_scope(Session.geocoded)
       end
 
     else
-      @sessions = Session.geocoded
+      @sessions = policy_scope(Session.geocoded)
     end
 
 
@@ -30,11 +30,13 @@ class SessionsController < ApplicationController
   end
 
   def show
-    @sessions = Session.find(params[:id])
+    @session = Session.find(params[:id])
+    authorize @session
   end
 
   def new
     @session = Session.new
+    authorize @session
   end
 
   def create
@@ -45,6 +47,8 @@ class SessionsController < ApplicationController
     result =  JSON.parse(page)
     @session.description = result["Plot"]
     @session.picture_url = result["Poster"]
+
+    authorize @session
 
     if @session.save
       redirect_to dashboard_bookings_path
@@ -66,8 +70,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @session.destroy
-    redirect_to sessions_url, notice: 'Session was successfully destroyed.'
+    if @session.bookings.length == 0
+      @session.destroy
+      redirect_to sessions_path, notice: 'Session was successfully destroyed.'
+    else
+      redirect_to session_path(@session), alert: "You can't delete a session that has bookings!"
+    end
   end
 
   private
@@ -78,6 +86,7 @@ class SessionsController < ApplicationController
 
   def fetch_session
     @session = Session.find(params[:id])
+    authorize @session
   end
 
 end
