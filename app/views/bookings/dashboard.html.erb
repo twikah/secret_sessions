@@ -18,9 +18,8 @@
 
     <div class="dashboard-sessions">
         <h3> Past Sessions </h3>
-
-    <div class="container-cards-details dashboard">
-      <% @past.each do |session| %>
+        <div class="container-cards-details dashboard">
+        <% @past.each do |session| %>
         <div class="session-details dash-card" >
           <img src="<%= session.picture_url %>" />
           <div class="session-info dash-info">
