@@ -1,4 +1,4 @@
-.container-ac {
+.container-access {
   width: 350px;
   margin: 65px auto;
 }
@@ -11,21 +11,13 @@ h1 {
   padding-bottom: 20px;
 }
 
-.login-button {
+.access-button {
   display: flex;
   flex-direction: row-reverse;
 }
 
-.login-links {
+.access-links {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
-}
-
-.login-links.a {
-  visibility: visible;
-}
-
-.login-links.b {
-  visibility: hidden;
 }
