@@ -1,1 +1,27 @@
-<h1>Edit session page</h1>
+<div class="container-new-form">
+  <h1>EDIT YOUR SESSION</h1>
+
+  <div class="new-form">
+    <%= simple_form_for @session do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="new-fields">
+      <%= f.input :movie, label: "What title will you be watching?", disabled: true, hint: 'You cannot change your username.' %>
+      <%= f.input :date, as: :datetime, label: "When is the session taking place?", minute_step: 15 %>
+      <%= f.input :address, label: "What is the exact location of this session?" %>
+      <%= f.input :neighborhood, label: "In which neighborhood?" %>
+      <%= f.input :capacity, label: false, collection: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50], prompt: "How many seats are available?" %>
+      <%= f.input :price, label: false, collection: 0..5, prompt: "How much would you like to charge per entry?" %>
+    </div>
+
+    <div class="new-button">
+      <%= link_to 'Cancel', dashboard_bookings_path , class:"btn btn-outline-dark" %>
+      <%= f.submit "Submit", class: "btn btn-dark" %>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+
+
