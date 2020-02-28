@@ -1,13 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-6">
-      <div class="ml-5 pl-3">
+    <div class="col-12">
+      <div class="ml-4 pl-3">
         <%= link_to 'Go back', :back %>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="ml-5 pl-3">
-        <p>Created by you! </p>
       </div>
     </div>
   </div>
@@ -17,21 +12,23 @@
         <%= render '/shared/session-poster', session: @session %>
       </div>
     </div>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-4">
       <div class="session-booking-card p-4">
         <div class="session-date">
           <p>Date: <%= @session.date.to_date %></p>
           <p>Time: <%= @session.date.to_s(:time) %></p>
         </div>
-        <div class="session-address">
+        <div class="session-address pt-2">
           <p>Address: <%= @session.address %></p>
+        </div>
+        <div class="session-address">
           <p>Neighborhood: <%= @session.neighborhood %></p>
         </div>
-        <p>Price: $ <%= @session.price %></p>
-        <p class="pt-3">Total revenue as of <%= DateTime.now.to_date %>: $ <%= (@bookings.map(&:total).reduce(&:+) || 0).round(2) %></p>
-        <p class="pt-3">Session's bookings:</p>
+        <p class="pt-3">Price: $ <%= @session.price %></p>
+        <p class="pt-1">Total revenue as of <%= DateTime.now.to_date %>: <strong>$ <%= (@bookings.map(&:total).reduce(&:+) || 0).round(2) %></strong></p>
+        <p class="pt-1">Session's bookings:</p>
         <% @bookings.each do |booking| %>
-          <p class="pl-2"><%= booking.user.email %></p>
+          <p class="buyers pl-2"><%= "#{booking.user.first_name} #{booking.user.last_name}" %></p>
         <% end %>
       </div>
     </div>
