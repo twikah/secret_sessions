@@ -5,6 +5,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
 
+// Update session price totals
 const updateTotal = (quantity) => {
   const totalField = document.querySelector('#booking-total');
   const price = document.querySelector('#booking-price').innerText;
@@ -15,10 +16,22 @@ const updateTotal = (quantity) => {
 };
 
 const quantityField = document.querySelector('#booking_quantity');
-quantityField.addEventListener('change', (event) => {
-  const quantity = quantityField.value || 0;
-  updateTotal(quantity);
+
+if (quantityField) {
+  quantityField.addEventListener('change', (event) => {
+    const quantity = quantityField.value || 0;
+    updateTotal(quantity);
+  });
+}
+
+// Show social media share buttons
+const shareButton = document.querySelector('#share-btn')
+const socialButtons = document.querySelector('#social-btns')
+shareButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  if (socialButtons.classList.contains('.d-none')) {
+    socialButtons.classList.remove('.d-none')
+  } else {
+    socialButtons.classList.add('.d-none')
+  }
 });
-
-
-
