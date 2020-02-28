@@ -33,10 +33,13 @@
         <p>Price: $ <%= @session.price %></p>
         <p>Location: It's a secret!</p>
         <div class="session-actions mt-5">
-          <%= link_to 'Share', '#', class:"btn btn-outline-dark" %>
+         <!-- <#%= link_to 'Share', '#', class:"btn btn-outline-dark" %>-->
           <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-outline-dark" %>
+          <%= rails_social_share_button_tag(@session.description) %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<!--
+  -->
