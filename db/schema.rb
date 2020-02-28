@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2020_02_27_232249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "picture_url"
     t.float "latitude"
     t.float "longitude"
-    t.string "picture_url"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_232249) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
