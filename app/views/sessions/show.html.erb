@@ -32,8 +32,8 @@
         <% else %>
           <div class="session-actions mt-4">
 <!--            <%#= link_to 'Share', '#', class:"btn btn-outline-dark" %>    -->
-            <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-dark" %>
             <%= rails_social_share_button_tag ('Check this out!! Secret Sessions!!'+ "      "   + request.base_url + request.fullpath) %>
+            <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-dark" %>
           </div>
         <% end %>
       </div>

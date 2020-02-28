@@ -1,9 +1,13 @@
 .search-form-control {
-  position: relative;
+  position: flex;
+}
+
+#form-box {
+  margin-bottom: -135px;
+  margin-top: 175px;
 }
 
 .search-form-control .btn {
-  position: sticky;
   top: 8px;
   bottom: 8px;
   left: 8px;
