@@ -15,10 +15,10 @@ const updateTotal = (quantity) => {
 };
 
 const quantityField = document.querySelector('#booking_quantity');
-quantityField.addEventListener('change', (event) => {
-  const quantity = quantityField.value || 0;
-  updateTotal(quantity);
-});
 
-
-
+if (quantityField) {
+  quantityField.addEventListener('change', (event) => {
+    const quantity = quantityField.value || 0;
+    updateTotal(quantity);
+  });
+}
