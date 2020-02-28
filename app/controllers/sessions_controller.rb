@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
 
   def index
     if params[:search].present? && params[:search][:neighborhood].present?
-      @sessions = policy_scope(Session.geocoded.near(params[:search][:neighborhood], 5))
+      @sessions = policy_scope(Session.geocoded.near(params[:search][:neighborhood], 5)).select { |session| session.date.to_date >= DateTime.now.to_date}
 
       if @sessions.length == 0
         @no_sessions = true
-        @sessions = policy_scope(Session.geocoded)
+        @sessions = policy_scope(Session.geocoded).select { |session| session.date.to_date >= DateTime.now.to_date}
       end
 
     else
-      @sessions = policy_scope(Session.geocoded)
+      @sessions = policy_scope(Session.geocoded).select { |session| session.date.to_date >= DateTime.now.to_date}
     end
 
 
