@@ -27,11 +27,14 @@ if (quantityField) {
 // Show social media share buttons
 const shareButton = document.querySelector('#share-btn')
 const socialButtons = document.querySelector('#social-btns')
+const sessionCard = document.querySelector('.session-booking-card');
 shareButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  if (socialButtons.classList.contains('.d-none')) {
-    socialButtons.classList.remove('.d-none')
+  console.log('here');
+  if (socialButtons.classList.contains('d-none')) {
+    socialButtons.classList.remove('d-none');
+    socialButtons.classList.add('d-block');
   } else {
-    socialButtons.classList.add('.d-none')
+    socialButtons.classList.remove('d-block');
+    socialButtons.classList.add('d-none');
   }
 });
