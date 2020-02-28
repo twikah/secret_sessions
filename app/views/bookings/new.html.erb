@@ -28,7 +28,7 @@
         <p>Price: $ <span id="booking-price"><%= @session.price %></span></p>
         <p>Address: It's a secret!</p>
 
-        <h5 class="mt-5">Get tickets to <%= @session.movie %>!</h5>
+        <h5 class="booking-prompt mt-5">Get tickets to <%= @session.movie %>!</h5>
 
         <% if @session.capacity == 0 || @session.capacity.nil? %>
           <p class="mt-5">Sorry, this session is sold out!</p>
