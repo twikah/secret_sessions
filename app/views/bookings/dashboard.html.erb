@@ -1,9 +1,8 @@
-<div class="dashboard-container">
+<main class="dashboard-container">
 
-    <div class="upcoming-sessions">
+    <section class="dashboard-sessions">
       <h3> Upcoming Sessions </h3>
-
-    <div class="container-cards-details dashboard">
+      <div class="container-cards-details dashboard">
       <% @upcoming.each do |session| %>
         <div class="session-details dash-card" >
           <img src="<%= session.picture_url %>" />
@@ -15,13 +14,12 @@
         </div>
       <% end %>
     </div>
-    </div>
+    </section>
 
-    <div class="past-sessions">
+    <div class="dashboard-sessions">
         <h3> Past Sessions </h3>
-
-    <div class="container-cards-details dashboard">
-      <% @past.each do |session| %>
+        <div class="container-cards-details dashboard">
+        <% @past.each do |session| %>
         <div class="session-details dash-card" >
           <img src="<%= session.picture_url %>" />
           <div class="session-info dash-info">
@@ -49,4 +47,4 @@
       <% end %>
     </div>
   </div>
-</div>
+</main>

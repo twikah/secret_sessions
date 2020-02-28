@@ -2,8 +2,9 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  padding: 25px 20px;
-  width: 92%;
+  padding: 0px 20px;
+  width: 95%;
+  margin: auto;
 }
 
 .dash-card {
@@ -12,9 +13,44 @@
 }
 
 .session-info.dash-info {
-  padding-left: 20px;
+  margin: 5px;
 }
+
 a.float-right.dash-link {
   float: left !important;
 }
 
+.dashboard-container {
+  border-left: 1vw solid #F7F7F8;
+  border-right: 1vw solid #F7F7F8;
+  border-bottom: 0.8vw solid #F7F7F8;
+  padding-bottom: 0px;
+  background-color: #F7F7F8;
+}
+
+.dashboard-sessions {
+  margin-bottom: 0.8vw !important;
+  background-color: #ffffff;
+}
+
+.dashboard-container h3 {
+  font-family: 'Oswald', sans-serif;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+.bookings-container {
+  background-color: #ffffff;
+}
+
+.dash-info h2 {
+  padding-bottom: 15px;
+  margin: 0px;
+}
+
+.session-info p {
+  padding-bottom: 10px;
+  margin-top: 0px;
+}
