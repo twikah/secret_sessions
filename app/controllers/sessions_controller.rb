@@ -6,9 +6,12 @@ class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sessions = Session.geocoded.near(params[:search][:neighborhood], 5)
+    # @restaurants = Restaurant.all
+    @sessions = policy_scope(Session.geocoded.near(params[:search][:neighborhood], 5))
+
+    # @sessions = Session.geocoded.near(params[:search][:neighborhood], 5)
     if @sessions.length == 0
-      @sessions = Session.geocoded
+      @sessions = policy_scope(Session.geocoded)
     end
 
     @markers = @sessions.map do |session|
@@ -27,6 +30,7 @@ class SessionsController < ApplicationController
 
   def new
     @session = Session.new
+    authorize @session
   end
 
   def create
@@ -37,6 +41,8 @@ class SessionsController < ApplicationController
     result =  JSON.parse(page)
     @session.description = result["Plot"]
     @session.picture_url = result["Poster"]
+
+    authorize @session
 
     if @session.save
       redirect_to dashboard_bookings_path
@@ -49,6 +55,7 @@ class SessionsController < ApplicationController
   end
 
   def update
+    # authorize @session
     if @session.update(session_params) # true / false
       redirect_to @session, notice: 'Your new movie session was successfully updated.'
     else
@@ -58,6 +65,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    # authorize @session
     @session.destroy
     redirect_to sessions_url, notice: 'Session was successfully destroyed.'
   end
@@ -70,6 +78,7 @@ class SessionsController < ApplicationController
 
   def fetch_session
     @session = Session.find(params[:id])
+    authorize @session
   end
 
 end

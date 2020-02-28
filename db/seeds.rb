@@ -29,11 +29,9 @@ end
 
 puts 'Finished'
 
-
 names = ['A Quiet Place Part II', 'Birds of Prey', 'Bad Boys for Life', 'The Lodge', 'Wonder Woman 1984']
 
 neighborhoods = ["Alvalade", "Bairro Alto", "Areeiro", "Intendente", "Olivais"]
-
 
 names.each do |name|
   url = "http://www.omdbapi.com/?s=#{name}&apikey=adf1f2d7"
@@ -43,7 +41,7 @@ names.each do |name|
   result = json["Search"].first
   Session.create!(
     movie: name,
-    description: Faker::Movies::VForVendetta.quote,
+    description: result["Plot"],
     neighborhood: neighborhoods.sample,
     address: Faker::Address.full_address,
     date: Faker::Date.forward(days: 23),
@@ -53,7 +51,6 @@ names.each do |name|
     picture_url: result["Poster"]
   )
 end
-
 
 puts 'Creating sessions'
 

@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   before_action :fetch_session, except: [:dashboard, :show]
 
   def index
