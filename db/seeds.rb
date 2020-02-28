@@ -84,11 +84,11 @@
 
 # puts 'Finished'
 
-require ‘nokogiri’
-require ‘faker’
+require 'nokogiri'
+require 'faker'
 Session.destroy_all
 User.destroy_all
-puts ‘Creating 3 fake users’
+puts 'Creating 3 fake users'
 3.times do
   User.create!(
    email: Faker::Internet.email,
@@ -97,34 +97,34 @@ puts ‘Creating 3 fake users’
    last_name: Faker::Name.last_name,
   )
 end
-puts ‘Finished’
-puts ‘Creaing movie info’
+puts 'Finished'
+puts 'Creaing movie info'
 movies = [
-  { title: ‘A Quiet Place Part II’, year: ‘2020’},
-  { title: ‘Birds of Prey’, year: ‘2020’ },
-  { title: ‘Mulan’, year: ‘2020’ },
-  { title: ‘The Lodge’, year: ‘2019’ },
-  { title: ‘Wonder Woman 1984’, year: ‘2020’ },
+  { title: 'A Quiet Place Part II', year: '2020'},
+  { title: 'Birds of Prey', year: '2020' },
+  { title: 'Mulan', year: '2020' },
+  { title: 'The Lodge', year: '2019' },
+  { title: 'Wonder Woman 1984', year: '2020' },
 ];
-neighborhoods = [“Alvalade”, “Bairro Alto”, “Areeiro”, “Intendente”, “Olivais”]
+neighborhoods = ['Alvalade', 'Bairro Alto', 'Areeiro', 'Intendente', 'Olivais']
 movies.each do |movie|
-  url = “http://www.omdbapi.com/?t=#{movie[:title]}&y=#{movie[:year]}&apikey=adf1f2d7”
+  url = "http://www.omdbapi.com/?t=#{movie[:title]}&y=#{movie[:year]}&apikey=adf1f2d7"
   page = Nokogiri::HTML(open(url).read)
   result = JSON.parse(page)
   Session.create!(
     movie: movie[:title],
-    description: result[“Plot”],
+    description: result['Plot'],
     neighborhood: neighborhoods.sample,
     address: Faker::Address.full_address,
     date: Faker::Date.forward(days: 23),
     capacity: Faker::Number.number(digits: 2),
     price: Faker::Number.between(from: 0, to: 5),
     user_id: User.first.id,
-    picture_url: result[“Poster”]
+    picture_url: result['Poster']
   )
 end
-puts ‘Finished’
-puts ‘Creating sessions’
-puts ‘Finished’
+puts 'Finished'
+puts 'Creating sessions'
+puts 'Finished'
 
 

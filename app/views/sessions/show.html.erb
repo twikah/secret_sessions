@@ -38,7 +38,7 @@
           <div class="session-actions mt-4">
             <%= link_to 'Share', '#', class:"btn btn-outline-dark", id:"share-btn" %>
             <% if policy(Booking).create? %>
-              <%= link_to 'Buy ticket!', new_session_booking_path(@session) , class:"btn btn-dark" %>
+              <%= link_to 'Buy ticket!', new_session_booking_path(@session), class:"btn btn-dark" %>
             <% end %>
           </div>
           <div class="social-buttons pt-4 d-none" id="social-btns">
@@ -60,5 +60,3 @@
     </div>
   </div>
 </div>
-<!--
-  -->
