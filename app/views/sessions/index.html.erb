@@ -1,4 +1,10 @@
-<div class="show-container">
+<% if @no_sessions %>
+  <div class="no-sessions-banner p-4">
+    <p class="text-center mb-0">There are no sessions in <%= params[:search][:neighborhood].capitalize %>. Check out our other sessions below! 👇</p>
+  </div>
+<% end %>
+
+<div class="d-flex">
   <div class="container-cards-details">
     <% @sessions.each do |session| %>
       <div class="session-details">
@@ -20,4 +26,6 @@
   </div>
 
   <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+</div>
 

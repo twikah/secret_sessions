@@ -1,0 +1,28 @@
+.booking-rules {
+  font-family: Oswald, sans-serif;
+  font-size: 16px;
+}
+
+.booking-rules-info {
+  font-weight: lighter;
+}
+
+.session-booking-card {
+  padding: 45px 25px;
+}
+
+.booking-prompt {
+  font-size: 17px;
+}
+
+.session-booking-card .form-actions {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.created-by {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 14px;
+  color: darkgrey;
+}

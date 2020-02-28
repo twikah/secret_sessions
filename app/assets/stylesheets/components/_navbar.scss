@@ -14,17 +14,18 @@
   border-radius: 50%;
 }
 
-// .main-name {
-//   margin-left: 200px;
-//   font-size: 34px;
-//   font-weight: lighter;
-//   text-align: center;
-//   letter-spacing: 1px;
-//   align-items: center;
-// }
+.main-name {
+  margin-left: 195px;
+  font-size: 34px;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: 1px;
+  align-items: center;
+  text-shadow: 2px 2px lightgrey;
+}
 
 .nav-item {
-  padding: 5px 15px 0px 15px;
+  padding: 5px 15px 0px;
 }
 
 .nav-item:hover {

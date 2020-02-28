@@ -6,10 +6,18 @@ class SessionsController < ApplicationController
   before_action :fetch_session, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sessions = Session.geocoded.near(params[:search][:neighborhood], 5)
-    if @sessions.length == 0
+    if params[:search].present? && params[:search][:neighborhood].present?
+      @sessions = Session.geocoded.near(params[:search][:neighborhood], 5)
+
+      if @sessions.length == 0
+        @no_sessions = true
+        @sessions = Session.geocoded
+      end
+
+    else
       @sessions = Session.geocoded
     end
+
 
     @markers = @sessions.map do |session|
       {
